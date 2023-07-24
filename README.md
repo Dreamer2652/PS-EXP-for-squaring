@@ -56,7 +56,7 @@ int main()
 그런데, 위의 코드는 잠깐만 봐도 알 수 있듯이 시간 복잡도가 <b>O(N)</b>이다. N이 매우 큰 수라면 이 코드가 원활히 작동할 수 있을까?
 
 ***
-## 임의의 정수에 대한 분할정복을 이용한 거듭제곱
+## 임의의 정수에 대한 분할 정복을 이용한 거듭제곱
 음이 아닌 두 정수 A, N가 있을 때 Α<sup>N</sup>를 구하는 방법을 생각해보자.  
 단, 이 수는 매우 클 수 있으므로 M으로 나눈 나머지 <b>Α<sup>N</sup> mod M</b>를 구할 것이다.  
 
@@ -76,7 +76,7 @@ int main()
 [백준 13171번 문제](https://acmicpc.net/problem/13171) 설명에 위 내용이 잘 정리되어있으니 참고하면 좋다.
 
 ***
-## 정사각행렬에 대한 분할정복을 이용한 거듭제곱
+## 정사각행렬에 대한 분할 정복을 이용한 거듭제곱
 앞에서 배운 정수의 거듭제곱을 바탕으로, 좀 더 확장하여 행렬에 적용시켜보자.
 
 행렬이라고 크게 다를 것 없이 앞에서 사용한 A의 종류를 정수가 아닌 정사각행렬로 바꿔주면 된다.  
@@ -91,3 +91,39 @@ int main()
 <div align="center"><b>
 O((행렬 곱 시간) × (곱셈 분할)) = O(K<sup>3</sup>lg N)
 </b></div><br>
+
+***
+## 분할 정복을 이용한 거듭제곱을 사용하여 풀 수 있는 문제들
+위의 내용을 적용하여 문제를 풀 수 있는 유형을 정리하면 대표적으로 아래와 같은 것들이 있다.
+
+#### 1. 피보나치 수열의 n번째 수 구하기
+피보나치 수열은 다음과 같이 각 항이 바로 앞의 두 항의 합으로 이루어진 수열로 다음과 같이 정의된다.
+<div align="center"><b>
+F<sub>0</sub> = 0, F<sub>1</sub> = 1, F<sub>n+2</sub> = F<sub>n+1</sub> + F<sub>n</sub>
+</b></div><br>
+
+초기값은 무시하고 아래의 점화식을 생각해보자.  
+<div align="center"><b>
+F<sub>n+2</sub> = F<sub>n+1</sub> + F<sub>n</sub> = 1 × F<sub>n+1</sub> + 1 × F<sub>n</sub><br>
+F<sub>n+1</sub> = 1 × F<sub>n+1</sub>
+</b></div><br>
+
+따라서, 이를 다음과 같이 행렬 형태로 표현할 수 있다.  
+```math
+\begin{pmatrix} F_{n+2} \\ F_{n+1} \end{pmatrix} =
+\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}
+\begin{pmatrix} F_{n+1} \\ F_{n} \end{pmatrix}
+```
+이 과정을 반복해서 진행하면,  
+```math
+\begin{pmatrix} F_{n+2} \\ F_{n+1} \end{pmatrix} =
+\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} F_{n+1} \\ F_{n} \end{pmatrix} = 
+\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} * \left ( \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} F_{n} \\ F_{n-1} \end{pmatrix}\right ) =
+\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}^{2} \begin{pmatrix} F_{n} \\ F_{n-1} \end{pmatrix} = \ldots = 
+\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}^{n+1} \begin{pmatrix} F_{1} \\ F_{0} \end{pmatrix} =
+\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}^{n+1} \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+```
+
+따라서, 임의의 피보나치 수는 **2×2 행렬**을 이용해 구할 수 있다.  
+
+즉, 앞 문단에서 K=2의 상수값으로 고정되므로 전체 시간 복잡도는 <b>O(lg N)</b>이 된다.
