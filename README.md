@@ -1,6 +1,6 @@
 PS : EXP by squaring
 ====================
-> Problem Solving (tags : Exponentiation by Squaring)
+> Problem Solving (tags : exponentiation by squaring)
 - Introduction
 - 단순 정수 (Single variable)
 - 정사각행렬 (Square matrix)
@@ -116,14 +116,19 @@ F<sub>n+1</sub> = 1 × F<sub>n+1</sub>
 ```
 이 과정을 반복해서 진행하면,  
 ```math
-\begin{pmatrix} F_{n+2} \\ F_{n+1} \end{pmatrix} =
-\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} F_{n+1} \\ F_{n} \end{pmatrix} = 
-\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} * \left ( \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} F_{n} \\ F_{n-1} \end{pmatrix}\right ) =
-\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}^{2} \begin{pmatrix} F_{n} \\ F_{n-1} \end{pmatrix} = \ldots = 
-\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}^{n+1} \begin{pmatrix} F_{1} \\ F_{0} \end{pmatrix} =
+\begin{align*}
+\begin{pmatrix} F_{n+2} \\ F_{n+1} \end{pmatrix} &=
+\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} F_{n+1} \\ F_{n} \end{pmatrix} \\&= 
+\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} * \left ( \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} F_{n} \\ F_{n-1} \end{pmatrix}\right ) \\&=
+\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}^{2} \begin{pmatrix} F_{n} \\ F_{n-1} \end{pmatrix} \\&= \ldots \\&= 
+\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}^{n+1} \begin{pmatrix} F_{1} \\ F_{0} \end{pmatrix} \\&=
 \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}^{n+1} \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+\end{align*}
 ```
 
 따라서, 임의의 피보나치 수는 **2×2 행렬**을 이용해 구할 수 있다.  
 
 즉, 앞 문단에서 K=2의 상수값으로 고정되므로 전체 시간 복잡도는 <b>O(lg N)</b>이 된다.
+
+***
+2. 
