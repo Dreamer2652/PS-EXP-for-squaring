@@ -348,7 +348,7 @@ $$A_N = \displaystyle\sum_{i=1}^{K} c_i A_{N-i} = \sum_{i=0}^{K-1} d_{i} A_{i}$$
 + $A_5 = 3(A_1+A_0)+2A_1 = 5A_1+3A_0$
 + $d_1 = 5, d_0 = 3$
 
-그런데 이 과정은 양변에 $A_x - c_1 A_{x-1} - c_2 A_{x-2} - \dots = 0$<b>의 상수배를 빼는 과정</b>으로도 볼 수 있다. 즉, 피보나치 수열의 경우 $A_x - A_{x-1} - A_{x-2} = 0$의 상수배를 빼는 것이다.
+그런데 이 과정은 양변에 $A_x - c_1 A_{x-1} - c_2 A_{x-2} - \dots = 0$의 <b>상수배를 빼는 과정</b>으로도 볼 수 있다. 즉, 피보나치 수열의 경우 $A_x - A_{x-1} - A_{x-2} = 0$의 상수배를 빼는 것이다.
 
 + $A_5 = A_4+A_3$
 + $A_5 = (A_4+A_3)-(A_4-A_3-A_2) = 2A_3+A_2$
@@ -379,3 +379,17 @@ $$x^N \mod f(x)=((x^1 \mod f(x)) × (x^2 \mod f(x)) × \dots × (x^{2^{k}} \mod 
 <div align="center"><b>
 O((다항식 곱셈&나눗셈 시간) × (곱셈 분할)) = O(<i>K</i><sup>2</sup> log <i>N</i>)
 </b></div>
+
+***
+## Reference
+백준 예시 문제
+- https://www.acmicpc.net/problem/13171
+- https://www.acmicpc.net/problem/11444
+- https://www.acmicpc.net/problem/15712
+- https://www.acmicpc.net/problem/12850
+
+등비수열의 합 행렬 풀이
+- https://memoacmicpc.tistory.com/24
+
+키타마사법 설명
+- https://justicehui.github.io/hard-algorithm/2021/03/13/kitamasa/
