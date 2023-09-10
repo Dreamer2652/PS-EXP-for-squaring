@@ -7,7 +7,7 @@ PS : EXP by squaring
 - 단순 정수 (Single variable)
 - 정사각행렬 (Square matrix)
 - 기타 적용 방법
-- Naive きたまさ法 (Polynomial / Vector)
+- Naive 키타마사법 (Polynomial / Vector)
 ***
 ## Introduction
 어떤 정수의 거듭제곱을 구하는 코드를 작성한다면 O(*N*)의 하나의 반복문을 사용하는 방법을 먼저 떠올린다.  
