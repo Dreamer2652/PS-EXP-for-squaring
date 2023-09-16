@@ -1,3 +1,4 @@
+// #23819 : 묻고 더블로 마셔
 #include <stdio.h>
 typedef long long L;
 
