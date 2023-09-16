@@ -6,7 +6,7 @@ int n, k, P, a[100], coeff[100], xn[100]={0,1,}, i, j;
 
 void PolyMul(int poly[])
 {
-  L temp[200]={0,}, t;
+  L temp[200]={0,};
 
   // Naive한 다항식 곱셈 구현
   for(i = 0; i < k; i++)
@@ -15,8 +15,8 @@ void PolyMul(int poly[])
 
   // Naive한 다항식 나눗셈 구현
   for(i = k+k-1; --i >= k;)
-    for(j = i-1; j >= i-k; t[j--] = z%P)
-      t = temp[i]+temp[j];
+    for(j = i-1; j >= i-k; j--)
+      temp[j] = (temp[j]+temp[i])%P;
 
   for(i = 0; i < k; i++)
     poly[i] = temp[i];  // temp 배열(다항식)을 poly에 복사
@@ -29,8 +29,8 @@ L Kitamasa()
   for(n -= k+1; n > 0; n >>= 1)  // 초항의 개수 + 1을 빼고 시작
   {
     if(n & 1)
-      PolyMul(A);
-    PolyMul(B);
+      PolyMul(coeff);
+    PolyMul(xn);
   }
 
   L s = 0;
@@ -41,7 +41,7 @@ L Kitamasa()
 
 int main()
 {
-  for(scanf("%d%d", &n, &k); i < k; A[i++] = 1)
+  for(scanf("%d%d", &n, &k); i < k; coeff[i++] = 1)
     scanf("%d", a+i);
   scanf("%d", &P);
   
