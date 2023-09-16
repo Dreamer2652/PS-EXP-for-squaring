@@ -16,7 +16,7 @@ void MatMul(int matrix[][5])
   
   for(i = 0; i < N; i++)
     for(j = 0; j < N; j++)
-      matrix[i][j] = temp[i][j];  // temp 행렬을 원래 행렬에 복사
+      matrix[i][j] = temp[i][j];  // temp 행렬을 matrix로 복사
 }
 
 int main()
