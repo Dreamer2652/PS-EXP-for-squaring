@@ -33,9 +33,9 @@ L Kitamasa()
     PolyMul(xn);
   }
 
-  L s = 0;
-  for(s = i = 0; i < k; i++)
-    s = (s+(L)coeff[i]*a[i])%P;  // 점화식이 단순한 초항들의 합
+  L result = 0;
+  for(result = i = 0; i < k; i++)
+    result = (result+(L)coeff[i]*a[i])%P;  // 점화식이 단순한 초항들의 합
   return s;  // 초항*계수들의 합을 return
 }
 
