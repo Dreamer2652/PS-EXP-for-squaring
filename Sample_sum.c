@@ -8,7 +8,7 @@ int main()
   for(scanf("%lld%lld%lld%lld", &a, &r, &n, &m); n; n >>= 1)
   {
     if(n & 1)
-      S = (result*r+a)%m;  // 현재 S 값에 가중치 r을 곱하고 a ~ ar^(2^k)를 더함
+      S = (S*r+a)%m;  // 현재 S 값에 가중치 r을 곱하고 a ~ ar^(2^k)를 더함
     
     // 곱해지는 값 update
     a = (a*r+a)%m;        // a+ar+...+ar^(2^k)
